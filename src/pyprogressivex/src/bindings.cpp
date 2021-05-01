@@ -239,7 +239,6 @@ py::tuple findTwoViewMotions(
 	return py::make_tuple(motions_, labeling_);
 }
 
-template<int _SkipPoints>
 py::bool_ MutltiPlaneFitting(	
 	std::string input_path_, // The path of the detected correspondences
 	std::string output_path_, // The path of the detected correspondences
@@ -250,7 +249,8 @@ py::bool_ MutltiPlaneFitting(
 	double spatial_coherence_weight_, // The weight of the spatial coherence term in the graph-cut energy minimization.
 	double cell_number_, // The radius of the neighborhood ball for determining the neighborhoods.
 	double maximum_tanimoto_similarity_, // The maximum Tanimoto similarity of the proposal and compound instances.
-	int minimum_point_number
+	int minimum_point_number,
+	int _SkipPoints
 
 ){
 	
@@ -258,7 +258,7 @@ py::bool_ MutltiPlaneFitting(
 						ransac_iteration_number_, confidence_,
 						inlier_outlier_threshold_, spatial_coherence_weight_,
 						cell_number_, maximum_tanimoto_similarity_, 
-						minimum_point_number)
+						minimum_point_number, _SkipPoints);
 
 	return true;
 }
