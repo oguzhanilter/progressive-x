@@ -249,8 +249,7 @@ py::bool_ MutltiPlaneFitting(
 	double spatial_coherence_weight_, // The weight of the spatial coherence term in the graph-cut energy minimization.
 	double cell_number_, // The radius of the neighborhood ball for determining the neighborhoods.
 	double maximum_tanimoto_similarity_, // The maximum Tanimoto similarity of the proposal and compound instances.
-	int minimum_point_number,
-	int _SkipPoints
+	int minimum_point_number
 
 ){
 	
@@ -258,7 +257,7 @@ py::bool_ MutltiPlaneFitting(
 						ransac_iteration_number_, confidence_,
 						inlier_outlier_threshold_, spatial_coherence_weight_,
 						cell_number_, maximum_tanimoto_similarity_, 
-						minimum_point_number, _SkipPoints);
+						minimum_point_number);
 
 	return true;
 }
@@ -289,7 +288,7 @@ PYBIND11_PLUGIN(pyprogressivex) {
 		py::arg("spatial_coherence_weight") = 0.0,
 		py::arg("cell_number") = 25,
 		py::arg("maximum_tanimoto_similarity") = 0.9,
-		py::arg("minimum_point_number") = 100);
+		py::arg("minimum_point_number") = 100) ;
 
 	m.def("findHomographies", &findHomographies, R"doc(some doc)doc",
 		py::arg("x1y1"),

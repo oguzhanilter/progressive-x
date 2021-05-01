@@ -54,5 +54,5 @@ void MultiPlaneFitting_(
 	const double spatial_coherence_weight_, // The weight of the spatial coherence term in the graph-cut energy minimization.
 	const double cell_number_, // The radius of the neighborhood ball for determining the neighborhoods.
 	const double maximum_tanimoto_similarity_, // The maximum Tanimoto similarity of the proposal and compound instances.
-	const size_t minimum_point_number_,// The minimum number of inlier for a model to be kept.
-	const size_t _SkipPoints); 
+	const size_t minimum_point_number_// The minimum number of inlier for a model to be kept.
+	); 
