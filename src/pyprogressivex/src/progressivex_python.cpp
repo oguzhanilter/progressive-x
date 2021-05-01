@@ -628,6 +628,7 @@ void MultiPlaneFitting_(
 			coloredPoints.at<double>(rowIdx, col) = 1.0;
 			// Increase the row index
 			++rowIdx;
+			// nice
 		}
 	}
 
