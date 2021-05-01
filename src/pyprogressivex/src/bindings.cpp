@@ -278,18 +278,6 @@ PYBIND11_PLUGIN(pyprogressivex) {
 
     )doc");
 
-	m.def("findMultiplePlanes", &MutltiPlaneFitting, R"doc(some doc)doc",
-		py::arg("input_path"),
-		py::arg("output_path"),
-		py::arg("oriented_points") = true,
-		py::arg("ransac_iteration_number") = 250,
-		py::arg("confidence") = 0.99,
-		py::arg("inlier_outlier_threshold") = 10.0,
-		py::arg("spatial_coherence_weight") = 0.0,
-		py::arg("cell_number") = 25,
-		py::arg("maximum_tanimoto_similarity") = 0.9,
-		py::arg("minimum_point_number") = 100) ;
-
 	m.def("findHomographies", &findHomographies, R"doc(some doc)doc",
 		py::arg("x1y1"),
 		py::arg("x2y2"),
@@ -326,6 +314,18 @@ PYBIND11_PLUGIN(pyprogressivex) {
 		py::arg("max_iters") = 400,
 		py::arg("minimum_point_number") = 2 * 3,
 		py::arg("maximum_model_number") = -1);
+	
+	m.def("findMultiplePlanes", &MutltiPlaneFitting, R"doc(some doc)doc",
+		py::arg("input_path"),
+		py::arg("output_path"),
+		py::arg("oriented_points") = true,
+		py::arg("ransac_iteration_number") = 250,
+		py::arg("confidence") = 0.99,
+		py::arg("inlier_outlier_threshold") = 10.0,
+		py::arg("spatial_coherence_weight") = 0.0,
+		py::arg("cell_number") = 25,
+		py::arg("maximum_tanimoto_similarity") = 0.9,
+		py::arg("minimum_point_number") = 100) ;
 
   return m.ptr();
 }
