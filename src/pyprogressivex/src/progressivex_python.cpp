@@ -427,7 +427,7 @@ int findTwoViewMotions_(
 
 
 template<size_t _SkipPoints>
-void MultiPlaneFitting_(
+int MultiPlaneFitting_(
 	const std::string& input_path_, // The path of the detected correspondences
 	const std::string& output_path_, // The path of the detected correspondences
 	const bool oriented_points_,
@@ -635,4 +635,6 @@ void MultiPlaneFitting_(
 	// Save the points to file
 	gcransac::utils::savePointsToFile(coloredPoints,
 		output_path_.c_str());
+
+	return 0;
 }

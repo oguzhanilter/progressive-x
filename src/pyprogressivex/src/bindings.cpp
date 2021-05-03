@@ -239,7 +239,7 @@ py::tuple findTwoViewMotions(
 	return py::make_tuple(motions_, labeling_);
 }
 
-py::bool_ MutltiPlaneFitting(	
+py::bool_ findMultiplePlanes(	
 	std::string input_path_, // The path of the detected correspondences
 	std::string output_path_, // The path of the detected correspondences
 	bool oriented_points_,
@@ -253,11 +253,11 @@ py::bool_ MutltiPlaneFitting(
 
 ){
 	
-	MultiPlaneFitting_( input_path_, output_path_, oriented_points_,
-						ransac_iteration_number_, confidence_,
-						inlier_outlier_threshold_, spatial_coherence_weight_,
-						cell_number_, maximum_tanimoto_similarity_, 
-						minimum_point_number);
+	int dummy = MultiPlaneFitting_<1>( input_path_, output_path_, oriented_points_,
+							ransac_iteration_number_, confidence_,
+							inlier_outlier_threshold_, spatial_coherence_weight_,
+							cell_number_, maximum_tanimoto_similarity_, 
+							minimum_point_number);
 
 	return true;
 }
@@ -315,7 +315,7 @@ PYBIND11_PLUGIN(pyprogressivex) {
 		py::arg("minimum_point_number") = 2 * 3,
 		py::arg("maximum_model_number") = -1);
 	
-	m.def("findMultiplePlanes", &MutltiPlaneFitting, R"doc(some doc)doc",
+	m.def("findMultiplePlanes", &findMultiplePlanes, R"doc(some doc)doc",
 		py::arg("input_path"),
 		py::arg("output_path"),
 		py::arg("oriented_points") = true,
